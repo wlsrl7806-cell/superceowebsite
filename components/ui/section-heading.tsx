@@ -17,10 +17,13 @@ export function SectionHeading({
 }: SectionHeadingProps) {
   const bodyLines = body ? (Array.isArray(body) ? body : [body]) : [];
   const alignClasses = align === "center" ? "items-center text-center" : "items-start text-left";
+  // Base sizes stay conservative — many of these headlines are two short
+  // Korean lines that must not wrap into a third line on a ~360-390px
+  // phone; the dramatic scale-up only kicks in from `sm` and up.
   const headlineSize =
     size === "lg"
-      ? "text-[2rem] sm:text-4xl lg:text-5xl"
-      : "text-[1.75rem] sm:text-3xl lg:text-[2.5rem]";
+      ? "text-[1.6rem] leading-[1.3] sm:text-5xl sm:leading-[1.15] lg:text-[4rem]"
+      : "text-[1.55rem] leading-[1.3] sm:text-4xl sm:leading-[1.2] lg:text-[3.25rem]";
 
   return (
     <div className={`flex flex-col ${alignClasses} ${className}`}>
@@ -30,7 +33,7 @@ export function SectionHeading({
           {eyebrow}
         </span>
       ) : null}
-      <h2 className={`font-extrabold text-ink-900 leading-[1.3] ${headlineSize}`}>
+      <h2 className={`font-extrabold text-ink-900 ${headlineSize}`}>
         {headline.map((line) => (
           <span key={line} className="block">
             {line}

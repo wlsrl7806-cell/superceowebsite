@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import { Noto_Sans_KR } from "next/font/google";
-import { SiteFooter } from "@/components/layout/site-footer";
-import { SiteHeader } from "@/components/layout/site-header";
 import { siteMeta } from "@/lib/content";
 import "./globals.css";
 
@@ -27,11 +25,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="ko" className={`${notoSansKr.variable} h-full`}>
-      <body className="flex min-h-full flex-col bg-cream text-ink-900 antialiased">
-        <SiteHeader />
-        <main className="flex-1">{children}</main>
-        <SiteFooter />
-      </body>
+      <body className="flex min-h-full flex-col bg-cream text-ink-900 antialiased">{children}</body>
     </html>
   );
 }

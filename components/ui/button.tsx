@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { AnchorHTMLAttributes, ReactNode } from "react";
 
 type ButtonVariant = "primary" | "secondary" | "ghost" | "inverse" | "ghostOnBrand";
@@ -27,6 +28,8 @@ const sizeClasses: Record<ButtonSize, string> = {
   lg: "px-7 py-3.5 text-base",
 };
 
+const isExternal = (href: string) => /^(https?:|mailto:|tel:)/.test(href);
+
 export function Button({
   href,
   variant = "primary",
@@ -35,13 +38,19 @@ export function Button({
   className = "",
   ...rest
 }: ButtonProps) {
+  const classes = `inline-flex items-center justify-center gap-1.5 rounded-full font-semibold transition-all duration-200 ease-out hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2 focus-visible:ring-offset-cream ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
+
+  if (isExternal(href)) {
+    return (
+      <a href={href} className={classes} {...rest}>
+        {children}
+      </a>
+    );
+  }
+
   return (
-    <a
-      href={href}
-      className={`inline-flex items-center justify-center gap-1.5 rounded-full font-semibold transition-all duration-200 ease-out hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2 focus-visible:ring-offset-cream ${variantClasses[variant]} ${sizeClasses[size]} ${className}`}
-      {...rest}
-    >
+    <Link href={href} className={classes} {...rest}>
       {children}
-    </a>
+    </Link>
   );
 }

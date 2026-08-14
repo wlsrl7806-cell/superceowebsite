@@ -160,6 +160,16 @@
   border-color: var(--color-ink-100);
 }
 
+/* Links are UI, not browser-default blue/purple/underlined text — every
+   anchor in this app sets its own color explicitly via Tailwind classes.
+   `:visited` needs its own rule: the UA stylesheet's `a:visited` selector
+   otherwise outranks a plain `a` selector and wins anyway. */
+a,
+a:visited {
+  color: inherit;
+  text-decoration: inherit;
+}
+
 html {
   scroll-behavior: smooth;
 }

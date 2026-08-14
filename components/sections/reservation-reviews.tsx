@@ -3,17 +3,20 @@ import { ReviewScreen } from "@/components/screens/review-screen";
 import { Container } from "@/components/ui/container";
 import { BellIcon, ChatIcon } from "@/components/ui/icons";
 import { PhoneFrame } from "@/components/ui/phone-frame";
+import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { reservationReviews } from "@/lib/content";
 
 export function ReservationReviews() {
   return (
-    <section className="py-20 sm:py-28">
+    <section className="py-24 sm:py-36">
       <Container>
-        <SectionHeading eyebrow={reservationReviews.eyebrow} headline={reservationReviews.headline} />
+        <Reveal>
+          <SectionHeading eyebrow={reservationReviews.eyebrow} headline={reservationReviews.headline} size="lg" />
+        </Reveal>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-2">
-          <div className="flex flex-col items-center gap-7 rounded-[2rem] bg-cream-soft p-7 text-center sm:p-9">
+        <div className="mt-16 grid gap-6 md:grid-cols-2">
+          <Reveal delay={150} className="flex flex-col items-center gap-7 rounded-[2rem] bg-cream-soft p-7 text-center sm:p-10">
             <span className="flex size-11 items-center justify-center rounded-2xl bg-white text-brand-600 shadow-soft">
               <BellIcon className="size-5" />
             </span>
@@ -23,13 +26,13 @@ export function ReservationReviews() {
                 {reservationReviews.reservation.body}
               </p>
             </div>
-            <PhoneFrame size="sm">
+            <PhoneFrame size="md">
               <ReservationScreen />
             </PhoneFrame>
             <p className="text-[12.5px] text-ink-400">{reservationReviews.reservation.note}</p>
-          </div>
+          </Reveal>
 
-          <div className="flex flex-col items-center gap-7 rounded-[2rem] bg-cream-soft p-7 text-center sm:p-9">
+          <Reveal delay={300} className="flex flex-col items-center gap-7 rounded-[2rem] bg-cream-soft p-7 text-center sm:p-10">
             <span className="flex size-11 items-center justify-center rounded-2xl bg-white text-brand-600 shadow-soft">
               <ChatIcon className="size-5" />
             </span>
@@ -51,11 +54,11 @@ export function ReservationReviews() {
                 ))}
               </div>
             </div>
-            <PhoneFrame size="sm">
+            <PhoneFrame size="md">
               <ReviewScreen />
             </PhoneFrame>
             <p className="text-[12.5px] text-ink-400">{reservationReviews.review.note}</p>
-          </div>
+          </Reveal>
         </div>
       </Container>
     </section>

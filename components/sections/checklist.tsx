@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Container } from "@/components/ui/container";
 import { CheckIcon, ChevronDownIcon, MoonIcon, SunriseIcon } from "@/components/ui/icons";
+import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { checklist } from "@/lib/content";
 
@@ -13,18 +14,20 @@ export function Checklist() {
   const [checkedItems, setCheckedItems] = useState<Record<string, boolean>>({ "open-0": true });
 
   return (
-    <section id="how-it-works" className="py-20 sm:py-28">
+    <section id="how-it-works" className="bg-cream-soft py-24 sm:py-36">
       <Container className="max-w-3xl">
-        <SectionHeading eyebrow={checklist.eyebrow} headline={checklist.headline} body={checklist.body} />
+        <Reveal>
+          <SectionHeading eyebrow={checklist.eyebrow} headline={checklist.headline} body={checklist.body} size="lg" />
+        </Reveal>
 
-        <div className="mt-12 space-y-4">
-          {checklist.groups.map((group) => {
+        <div className="mt-14 space-y-4">
+          {checklist.groups.map((group, groupIndex) => {
             const Icon = groupIcons[group.id as keyof typeof groupIcons];
             const isOpen = openGroups[group.id];
             const doneCount = group.items.filter((_, i) => checkedItems[`${group.id}-${i}`]).length;
 
             return (
-              <div key={group.id} className="overflow-hidden rounded-2xl bg-white shadow-soft">
+              <Reveal key={group.id} delay={150 + groupIndex * 120} className="overflow-hidden rounded-2xl bg-white shadow-soft">
                 <button
                   type="button"
                   className="flex w-full items-center gap-3 px-5 py-4.5 text-left sm:px-6"
@@ -83,7 +86,7 @@ export function Checklist() {
                     </ul>
                   </div>
                 </div>
-              </div>
+              </Reveal>
             );
           })}
         </div>

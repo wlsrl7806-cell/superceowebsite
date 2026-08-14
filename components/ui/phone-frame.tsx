@@ -1,7 +1,7 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
 
-type PhoneFrameSize = "sm" | "md" | "lg";
+type PhoneFrameSize = "sm" | "md" | "lg" | "xl";
 
 type PhoneFrameProps = {
   size?: PhoneFrameSize;
@@ -21,18 +21,21 @@ const frameClasses: Record<PhoneFrameSize, string> = {
   sm: "w-[164px] rounded-[1.6rem] border-[6px]",
   md: "w-[224px] rounded-[2.1rem] border-[7px]",
   lg: "w-[280px] rounded-[2.6rem] border-[9px]",
+  xl: "w-[340px] rounded-[3rem] border-[10px]",
 };
 
 const screenRadius: Record<PhoneFrameSize, string> = {
   sm: "rounded-[1.1rem]",
   md: "rounded-[1.5rem]",
   lg: "rounded-[1.9rem]",
+  xl: "rounded-[2.2rem]",
 };
 
 const notchClasses: Record<PhoneFrameSize, string> = {
   sm: "h-3 w-14",
   md: "h-3.5 w-[4.5rem]",
   lg: "h-4.5 w-24",
+  xl: "h-5 w-28",
 };
 
 export function PhoneFrame({

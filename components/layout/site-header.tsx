@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
@@ -12,25 +13,25 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-ink-100/80 bg-cream/85 backdrop-blur-md">
       <Container className="flex h-16 items-center justify-between sm:h-[72px]">
-        <a href="#top" className="flex items-center gap-2" onClick={() => setOpen(false)}>
+        <Link href="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
           <LogoMark className="size-8" />
           <span className="text-[17px] font-extrabold tracking-tight text-ink-900">{siteMeta.name}</span>
-        </a>
+        </Link>
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="주요 메뉴">
           {nav.links.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               className="text-[15px] font-medium text-ink-600 transition-colors hover:text-ink-900"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
         <div className="hidden md:block">
-          <Button href="#contact" size="md">
+          <Button href="/#contact" size="md">
             {nav.cta}
           </Button>
         </div>
@@ -67,16 +68,16 @@ export function SiteHeader() {
         <div className="min-h-0">
           <Container className="flex flex-col gap-1 pb-5">
             {nav.links.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 className="rounded-xl px-3 py-2.5 text-[15px] font-medium text-ink-700 hover:bg-ink-50"
                 onClick={() => setOpen(false)}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
-            <Button href="#contact" size="md" className="mt-2 w-full" onClick={() => setOpen(false)}>
+            <Button href="/#contact" size="md" className="mt-2 w-full" onClick={() => setOpen(false)}>
               {nav.cta}
             </Button>
           </Container>

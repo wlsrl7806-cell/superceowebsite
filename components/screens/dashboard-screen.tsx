@@ -38,7 +38,7 @@ export function DashboardScreen() {
       </div>
 
       <p className="mt-3.5 px-0.5 text-[10px] font-bold text-ink-500">{hero.quickActionsTitle}</p>
-      <div className="mt-1.5 grid flex-1 grid-cols-2 gap-2">
+      <div className="mt-1.5 grid grid-cols-2 gap-2">
         {hero.quickActions.map(({ label, icon }) => {
           const Icon = quickActionIcons[icon];
           return (
@@ -54,6 +54,8 @@ export function DashboardScreen() {
           );
         })}
       </div>
+
+      <div className="flex-1" />
 
       <ScreenBottomNav active={0} />
     </div>

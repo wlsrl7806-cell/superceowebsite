@@ -13,13 +13,17 @@ export const siteMeta = {
 };
 
 export const nav = {
+  // Root-relative ("/#service") rather than bare hashes — the header now
+  // appears on more than one page (e.g. /story), and a bare "#service"
+  // link only scrolls correctly when you're already on "/".
   links: [
-    { label: "서비스", href: "#service" },
-    { label: "주요 기능", href: "#features" },
-    { label: "사용 방법", href: "#how-it-works" },
-    { label: "문의하기", href: "#contact" },
+    { label: "서비스", href: "/#service" },
+    { label: "주요 기능", href: "/#features" },
+    { label: "사용 방법", href: "/#how-it-works" },
+    { label: "브랜드 스토리", href: "/story" },
+    { label: "문의하기", href: "/#contact" },
   ],
-  cta: "도입 문의",
+  cta: "제휴 문의",
 };
 
 export const hero = {
@@ -29,8 +33,8 @@ export const hero = {
     "오픈 준비부터 재고, 발주, 예약, 리뷰까지.",
     "오늘 가게에서 필요한 일을 슈퍼사장이 먼저 정리해드려요.",
   ],
-  primaryCta: { label: "슈퍼사장 알아보기", href: "#service" },
-  secondaryCta: { label: "도입 문의", href: "#contact" },
+  primaryCta: { label: "슈퍼사장 알아보기", href: "/#service" },
+  secondaryCta: { label: "제휴 문의", href: "/#contact" },
   greeting: "좋은 아침이에요, 사장님 👋",
   todayCount: "오늘 확인할 일이 4개 있어요.",
   briefingTitle: "AI 운영브리핑",
@@ -72,26 +76,17 @@ export const problem = {
   },
 };
 
-export const coreExperience = {
-  eyebrow: "핵심 기능",
-  features: [
-    {
-      id: "quick-actions",
-      number: "01",
-      label: "빠른작업",
-      headline: ["자주 하는 일은", "찾지 말고 바로."],
-    },
-    {
-      id: "ai-briefing",
-      number: "02",
-      label: "AI 운영브리핑",
-      headline: ["오늘 가게에서 중요한 일,", "먼저 알려드릴게요."],
-      card: {
-        title: ["사장님,", "오늘 확인할 일이 있어요."],
-        items: ["우유 재고 부족", "17시 예약 3건", "새 리뷰 2건", "오픈 체크 미완료"],
-      },
-    },
-  ] as const,
+// Sections 3 and 4 of the homepage story — one idea, one large phone, each.
+export const aiBriefingSpotlight = {
+  eyebrow: "AI 운영브리핑",
+  headline: ["다른 무엇보다,", "오늘이 먼저예요."],
+  body: "오늘 확인해야 할 일을 슈퍼사장이 먼저 정리해드려요.",
+};
+
+export const quickActionsSpotlight = {
+  eyebrow: "빠른작업",
+  headline: ["자주 하는 일은", "찾지 말고 바로."],
+  body: "오픈부터 예약까지, 손끝에서 바로 실행하세요.",
 };
 
 export const checklist = {
@@ -181,10 +176,9 @@ export const appShowcase = {
 };
 
 export const finalCta = {
-  headline: ["사장님은", "손님에게만 집중하세요."],
-  body: ["오늘 해야 할 일은", "슈퍼사장이 함께 챙길게요."],
-  primaryCta: { label: "슈퍼사장 시작하기", href: "#contact" },
-  secondaryCta: { label: "도입 문의", href: "#contact" },
+  headline: ["곧 만나보실 수 있습니다."],
+  body: ["슈퍼사장은 현재 개발 중입니다.", "Google Play와 App Store에서 곧 만나보실 수 있습니다."],
+  primaryCta: { label: "제휴 문의", href: "/#contact" },
 };
 
 export const footer = {
@@ -194,20 +188,21 @@ export const footer = {
     {
       title: "바로가기",
       links: [
-        { label: "서비스", href: "#service" },
-        { label: "주요 기능", href: "#features" },
+        { label: "서비스", href: "/#service" },
+        { label: "주요 기능", href: "/#features" },
+        { label: "슈퍼사장 이야기", href: "/story" },
       ],
     },
     {
       title: "정책",
       links: [
-        { label: "개인정보처리방침", href: "#" },
-        { label: "이용약관", href: "#" },
+        { label: "개인정보처리방침", href: "/privacy" },
+        { label: "이용약관", href: "/terms" },
       ],
     },
     {
       title: "고객지원",
-      links: [{ label: "문의하기", href: "#contact" }],
+      links: [{ label: "문의하기", href: "/#contact" }],
     },
   ],
   copyright: `© ${new Date().getFullYear()} 슈퍼사장. All rights reserved.`,

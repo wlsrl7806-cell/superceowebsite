@@ -243,3 +243,23 @@ export function SendIcon(props: IconProps) {
     </svg>
   );
 }
+
+export function HomeIcon(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="m4 10.5 8-6.5 8 6.5" />
+      <path d="M5.5 9.5V19a1 1 0 0 0 1 1H10v-5.5h4V20h3.5a1 1 0 0 0 1-1V9.5" />
+    </svg>
+  );
+}
+
+export function MoreIcon(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <rect x="4" y="4" width="7" height="7" rx="1.8" />
+      <rect x="13" y="4" width="7" height="7" rx="1.8" />
+      <rect x="4" y="13" width="7" height="7" rx="1.8" />
+      <rect x="13" y="13" width="7" height="7" rx="1.8" />
+    </svg>
+  );
+}

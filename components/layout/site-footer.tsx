@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { LogoMark } from "@/components/ui/logo-mark";
 import { footer } from "@/lib/content";
@@ -22,9 +23,9 @@ export function SiteFooter() {
                 <ul className="mt-3 space-y-2.5">
                   {group.links.map((link) => (
                     <li key={link.label}>
-                      <a href={link.href} className="text-[14px] text-ink-600 hover:text-ink-900">
+                      <Link href={link.href} className="text-[14px] text-ink-600 hover:text-ink-900">
                         {link.label}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
