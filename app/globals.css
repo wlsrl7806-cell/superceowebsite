@@ -1,0 +1,208 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fafaf7;
+  --foreground: #16181d;
+
+  /* Brand — royal blue, from the 슈퍼사장 app icon. #1242C8 is the exact
+     primary; #092663 (brand-800) is the exact deep navy. */
+  --color-brand-50: #f2f6ff;
+  --color-brand-100: #e1e9ff;
+  --color-brand-200: #c0d0ff;
+  --color-brand-300: #93aeff;
+  --color-brand-400: #4e72e8;
+  --color-brand-500: #1242c8;
+  --color-brand-600: #0f37a8;
+  --color-brand-700: #0c2c88;
+  --color-brand-800: #092663;
+
+  /* Sun — soft periwinkle tints for gentle depth on the AI-briefing card,
+     plus a warm gold reserved only for star ratings (sun-300/400/500). */
+  --color-sun-50: #f7f9ff;
+  --color-sun-100: #edf1ff;
+  --color-sun-300: #ffe08a;
+  --color-sun-400: #ffc94d;
+  --color-sun-500: #f5a524;
+
+  /* Red — the mascot's cape. Reserved for small accents only, never a
+     background or a dominant UI color. */
+  --color-red-100: #fde4e1;
+  --color-red-500: #e14434;
+  --color-red-600: #c22f20;
+
+  /* Mint — used sparingly for confirmations / done states */
+  --color-mint-100: #dff5ea;
+  --color-mint-400: #5cc99b;
+  --color-mint-500: #3fb88a;
+
+  /* Ink — cool neutral grays for text and surfaces. #16181D is the exact
+     brand text color (ink-900). */
+  --color-ink-900: #16181d;
+  --color-ink-800: #262a33;
+  --color-ink-700: #3a3f4b;
+  --color-ink-600: #545a68;
+  --color-ink-500: #6b7280;
+  --color-ink-400: #8a90a0;
+  --color-ink-300: #afb4c0;
+  --color-ink-200: #d8dbe3;
+  --color-ink-100: #e8eaf0;
+  --color-ink-50: #f3f5f9;
+
+  /* Warm off-white (main page background) and soft blue (alternating
+     section background) — both exact brand values. */
+  --color-cream: #fafaf7;
+  --color-cream-soft: #f2f6ff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-brand-50: var(--color-brand-50);
+  --color-brand-100: var(--color-brand-100);
+  --color-brand-200: var(--color-brand-200);
+  --color-brand-300: var(--color-brand-300);
+  --color-brand-400: var(--color-brand-400);
+  --color-brand-500: var(--color-brand-500);
+  --color-brand-600: var(--color-brand-600);
+  --color-brand-700: var(--color-brand-700);
+  --color-brand-800: var(--color-brand-800);
+
+  --color-sun-50: var(--color-sun-50);
+  --color-sun-100: var(--color-sun-100);
+  --color-sun-300: var(--color-sun-300);
+  --color-sun-400: var(--color-sun-400);
+  --color-sun-500: var(--color-sun-500);
+
+  --color-red-100: var(--color-red-100);
+  --color-red-500: var(--color-red-500);
+  --color-red-600: var(--color-red-600);
+
+  --color-mint-100: var(--color-mint-100);
+  --color-mint-400: var(--color-mint-400);
+  --color-mint-500: var(--color-mint-500);
+
+  --color-ink-900: var(--color-ink-900);
+  --color-ink-800: var(--color-ink-800);
+  --color-ink-700: var(--color-ink-700);
+  --color-ink-600: var(--color-ink-600);
+  --color-ink-500: var(--color-ink-500);
+  --color-ink-400: var(--color-ink-400);
+  --color-ink-300: var(--color-ink-300);
+  --color-ink-200: var(--color-ink-200);
+  --color-ink-100: var(--color-ink-100);
+  --color-ink-50: var(--color-ink-50);
+
+  --color-cream: var(--color-cream);
+  --color-cream-soft: var(--color-cream-soft);
+
+  --font-sans: var(--font-noto-sans-kr);
+
+  --shadow-soft: 0 2px 8px 0 rgb(22 24 29 / 0.04), 0 8px 24px -4px rgb(22 24 29 / 0.06);
+  --shadow-card: 0 1px 2px 0 rgb(22 24 29 / 0.04), 0 12px 32px -8px rgb(22 24 29 / 0.10);
+  --shadow-float: 0 20px 48px -12px rgb(18 66 200 / 0.25);
+
+  --animate-float: float 5s ease-in-out infinite;
+  --animate-breathe: breathe 3.4s ease-in-out infinite;
+  --animate-fade-up: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-pop: pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* The product brand is warm & light by design; keep the marketing site on
+       the light palette even when the OS is in dark mode. */
+    --background: #fafaf7;
+    --foreground: #16181d;
+  }
+}
+
+* {
+  border-color: var(--color-ink-100);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-ink-900);
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Malgun Gothic", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-wrap: pretty;
+  /* Korean text wraps by "word" (space-separated chunks) instead of
+     breaking mid-syllable — keeps short UI labels from stacking vertically
+     in narrow containers like the phone mockups. */
+  word-break: keep-all;
+}
+
+::selection {
+  background: var(--color-brand-200);
+  color: var(--color-ink-900);
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+  letter-spacing: -0.02em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
