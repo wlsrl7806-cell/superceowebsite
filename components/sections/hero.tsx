@@ -1,7 +1,8 @@
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
-import { DashboardScreen } from "@/components/screens/dashboard-screen";
 import { PhoneFrame } from "@/components/ui/phone-frame";
+import { appScreens } from "@/lib/app-screens";
 import { hero } from "@/lib/content";
 
 export function Hero() {
@@ -48,8 +49,15 @@ export function Hero() {
 
         <div className="relative mt-16 sm:mt-20">
           <div className="animate-float">
-            <PhoneFrame size="xl" className="mx-auto">
-              <DashboardScreen />
+            <PhoneFrame size="xl" className="mx-auto !w-[390px]" showNotch={false}>
+              <Image
+                src={appScreens.main}
+                alt="슈퍼사장 메인 화면"
+                fill
+                priority
+                sizes="(max-width: 768px) 80vw, 390px"
+                className="object-contain"
+              />
             </PhoneFrame>
           </div>
           <div

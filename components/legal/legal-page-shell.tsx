@@ -28,7 +28,7 @@ export function LegalPageShell({ eyebrow, title, updated, children }: LegalPageS
           확정될 예정입니다.
         </div>
 
-        <div className="mt-10 space-y-8 text-[15px] leading-relaxed text-ink-600">{children}</div>
+        <div className="mt-10 space-y-12 text-[15px] leading-relaxed text-ink-600">{children}</div>
       </Container>
     </article>
   );
