@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
+import { PartnershipButton } from "@/components/contact/partnership-button";
 import { Container } from "@/components/ui/container";
 import { LogoMark } from "@/components/ui/logo-mark";
 import { nav, siteMeta } from "@/lib/content";
@@ -31,9 +31,7 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden md:block">
-          <Button href="/#contact" size="md">
-            {nav.cta}
-          </Button>
+          <PartnershipButton size="md">{nav.cta}</PartnershipButton>
         </div>
 
         <button
@@ -77,9 +75,15 @@ export function SiteHeader() {
                 {link.label}
               </Link>
             ))}
-            <Button href="/#contact" size="md" className="mt-2 w-full" onClick={() => setOpen(false)}>
+            <PartnershipButton
+              size="md"
+              className="mt-2 w-full"
+              onClick={() => {
+                setOpen(false);
+              }}
+            >
               {nav.cta}
-            </Button>
+            </PartnershipButton>
           </Container>
         </div>
       </div>

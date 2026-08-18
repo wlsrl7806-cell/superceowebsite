@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { PartnershipButton } from "@/components/contact/partnership-button";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { PhoneFrame } from "@/components/ui/phone-frame";
@@ -41,9 +42,9 @@ export function Hero() {
             <Button href={hero.primaryCta.href} size="lg">
               {hero.primaryCta.label}
             </Button>
-            <Button href={hero.secondaryCta.href} variant="secondary" size="lg">
+            <PartnershipButton variant="secondary" size="lg">
               {hero.secondaryCta.label}
-            </Button>
+            </PartnershipButton>
           </div>
         </div>
 

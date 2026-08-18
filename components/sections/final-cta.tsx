@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { PartnershipButton } from "@/components/contact/partnership-button";
 import { Container } from "@/components/ui/container";
 import { Mascot } from "@/components/ui/mascot";
 import { Reveal } from "@/components/ui/reveal";
@@ -37,9 +37,9 @@ export function FinalCta() {
           </p>
 
           <div className="relative mt-9 flex justify-center">
-            <Button href={finalCta.primaryCta.href} variant="inverse" size="lg">
+            <PartnershipButton variant="inverse" size="lg">
               {finalCta.primaryCta.label}
-            </Button>
+            </PartnershipButton>
           </div>
         </Reveal>
       </Container>

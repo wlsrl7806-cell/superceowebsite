@@ -1,8 +1,8 @@
 import Link from "next/link";
 import type { AnchorHTMLAttributes, ReactNode } from "react";
 
-type ButtonVariant = "primary" | "secondary" | "ghost" | "inverse" | "ghostOnBrand";
-type ButtonSize = "md" | "lg";
+export type ButtonVariant = "primary" | "secondary" | "ghost" | "inverse" | "ghostOnBrand";
+export type ButtonSize = "md" | "lg";
 
 type ButtonProps = {
   href: string;
@@ -30,6 +30,24 @@ const sizeClasses: Record<ButtonSize, string> = {
 
 const isExternal = (href: string) => /^(https?:|mailto:|tel:)/.test(href);
 
+/**
+ * The visual style shared by every button-shaped control on the site —
+ * exported so non-link triggers (e.g. PartnershipButton, which opens the
+ * contact modal instead of navigating) can look identical without
+ * duplicating the class list.
+ */
+export function buttonClassName({
+  variant = "primary",
+  size = "md",
+  className = "",
+}: {
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+  className?: string;
+} = {}) {
+  return `inline-flex items-center justify-center gap-1.5 rounded-full font-semibold transition-all duration-200 ease-out hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2 focus-visible:ring-offset-cream ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
+}
+
 export function Button({
   href,
   variant = "primary",
@@ -38,7 +56,7 @@ export function Button({
   className = "",
   ...rest
 }: ButtonProps) {
-  const classes = `inline-flex items-center justify-center gap-1.5 rounded-full font-semibold transition-all duration-200 ease-out hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2 focus-visible:ring-offset-cream ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
+  const classes = buttonClassName({ variant, size, className });
 
   if (isExternal(href)) {
     return (

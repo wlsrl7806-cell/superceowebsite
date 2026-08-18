@@ -2,7 +2,6 @@ import { Checklist } from "@/components/sections/checklist";
 import { FinalCta } from "@/components/sections/final-cta";
 import { Hero } from "@/components/sections/hero";
 import { Inventory } from "@/components/sections/inventory";
-import { Message } from "@/components/sections/message";
 import { Order } from "@/components/sections/order";
 import { Philosophy } from "@/components/sections/philosophy";
 import { Problem } from "@/components/sections/problem";
@@ -22,7 +21,6 @@ export default function Home() {
       <Review />
       <Inventory />
       <Order />
-      <Message />
       <Checklist />
       <Recipes />
       <Philosophy />

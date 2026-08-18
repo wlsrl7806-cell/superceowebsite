@@ -19,7 +19,6 @@ export const nav = {
   links: [
     { label: "서비스", href: "/#service" },
     { label: "주요 기능", href: "/#features" },
-    { label: "사용 방법", href: "/#how-it-works" },
     { label: "브랜드 스토리", href: "/story" },
     { label: "문의하기", href: "/#contact" },
   ],
@@ -93,12 +92,6 @@ export const order = {
   eyebrow: "발주",
   headline: ["재고 확인이", "바로 발주로 이어집니다."],
   body: ["부족한 품목을 선택하고", "거래처별 발주 내용을 한 번에 확인하세요."],
-};
-
-export const message = {
-  eyebrow: "발주 문자",
-  headline: ["발주 문자까지", "바로 준비됩니다."],
-  body: ["선택한 발주 품목을 바탕으로", "거래처에 보낼 문자를 준비하고 바로 발송할 수 있어요."],
 };
 
 export const checklist = {
