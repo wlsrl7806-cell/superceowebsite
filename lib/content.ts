@@ -7,7 +7,7 @@
 export const siteMeta = {
   name: "슈퍼사장",
   tagline: "사장님의 숨은 매니저",
-  url: "https://supercheo.app",
+  url: "https://superceo.app",
   description:
     "슈퍼사장은 오픈 준비부터 재고, 발주, 예약, 리뷰까지 가게 운영에 필요한 일을 먼저 챙겨주는 서비스입니다.",
 };
