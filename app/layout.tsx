@@ -12,6 +12,13 @@ const notoSansKr = Noto_Sans_KR({
   display: "swap",
 });
 
+const ogImage = {
+  url: "/brand/og-image.png",
+  width: 1200,
+  height: 630,
+  alt: `${siteMeta.name} — ${siteMeta.tagline}`,
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteMeta.url),
   title: `${siteMeta.name} | ${siteMeta.tagline}`,
@@ -21,6 +28,13 @@ export const metadata: Metadata = {
     description: siteMeta.description,
     locale: "ko_KR",
     type: "website",
+    images: [ogImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${siteMeta.name} | ${siteMeta.tagline}`,
+    description: siteMeta.description,
+    images: [ogImage.url],
   },
 };
 

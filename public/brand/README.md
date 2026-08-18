@@ -1,6 +1,12 @@
 # Brand assets go here
 
-The site currently draws the logo and mascot as hand-built inline SVG
+`super-sajang-logo.png` — the real app icon/lockup (mark + wordmark + tagline),
+used as-is in `public/brand/og-image.png` (the site's Open Graph / social-share
+image, wired up in `app/layout.tsx`). To update the OG image, regenerate it
+and overwrite `og-image.png` — it's a static 1200×630 PNG, not a dynamic
+route.
+
+The rest of the site currently draws the logo and mascot as hand-built inline SVG
 placeholders (`components/ui/logo-mark.tsx`, `components/ui/mascot.tsx`) in
 the brand blue (`#1242C8`) with a small red cape accent — there is nothing
 broken today. When the real brand assets (based on the existing 슈퍼사장 app
